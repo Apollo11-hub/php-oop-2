@@ -2,6 +2,7 @@
 
 require_once __DIR__ . "/classes/Products.php";
 require_once __DIR__ . "/classes/User.php";
+require_once __DIR__ . "/classes/CreditCard.php";
 require_once __DIR__ . "/classes/AnimalTypeProduct.php";
 
 //PRODUCTS
@@ -26,7 +27,14 @@ var_dump($food_type1);
 
 
 //USER
-$luigi_rossi = new User("Luigi","Rossi","luigi.rossi@mail.it",true);
+$luigi_rossi = new User("Luigi","Rossi","luigi.rossi@mail.it", true);
+
+try{
+  $luigi_rossi = new CreditCard ('Luigi','Rossi','1234567891234567','232',2024,2);
+}catch (Exception $e){
+  echo $e->getMessage();
+}
+
 
 var_dump($luigi_rossi);
 
